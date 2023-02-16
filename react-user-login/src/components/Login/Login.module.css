@@ -54,12 +54,3 @@
   }
 
 }
-
-.btn {
-  background-color: blue;
-}
-
-.btn:hover,
-.btn:focus {
-  background-color: rgb(38, 125, 231);
-}
