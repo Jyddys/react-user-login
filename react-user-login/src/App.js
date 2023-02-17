@@ -8,6 +8,11 @@ import AuthContext from './store/auth-contex';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const users = {
+    email: "testi1@testi.fi",
+
+  }
+
 
   useEffect(() => {
     const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn', '1');
@@ -17,11 +22,16 @@ function App() {
     }
   }, []);
 
-  const loginHandler = () => {
+  const loginHandler = (email, password) => {
     // We should of course check email and password
     // But it's just a dummy/ demo anyways
-    localStorage.setItem('isLoggedIn', '1');  
-    setIsLoggedIn(true)
+    if(email === "testi1@t.fi" && password === "vab1t1t!" ) {
+      localStorage.setItem('isLoggedIn', '1');  
+      setIsLoggedIn(true)
+    } else {
+      console.log("wrong email or password")
+    }
+    
   };
 
 
@@ -39,7 +49,7 @@ function App() {
         >
       <MainHeader/>
       <main>
-        {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {!isLoggedIn && <Login onLogin={loginHandler} loginHandler={loginHandler} />}
         {isLoggedIn && <Home onLogout={logoutHandler} />}
       </main>
       </AuthContext.Provider>
