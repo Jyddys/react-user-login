@@ -78,7 +78,6 @@ useEffect(() => {
   const submitHandler = (event) => {
     event.preventDefault();
     props.onLogin(emailState.value, passwordState.value);
-    props.loginHandler(emailState.value, passwordState.value);
   };
 
   return (
