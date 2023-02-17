@@ -10,7 +10,7 @@ function App() {
 
   const users = {
     email: "testi1@testi.fi",
-
+    password: "vab1t1t!",
   }
 
 
@@ -25,7 +25,7 @@ function App() {
   const loginHandler = (email, password) => {
     // We should of course check email and password
     // But it's just a dummy/ demo anyways
-    if(email === "testi1@t.fi" && password === "vab1t1t!" ) {
+    if(email === users.email && password ===  users.password) {
       localStorage.setItem('isLoggedIn', '1');  
       setIsLoggedIn(true)
     } else {
